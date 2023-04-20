@@ -15,7 +15,7 @@ public class ScreenWrapping : MonoBehaviour
         }
         else if(gameObject.GetComponent<BoxCollider2D>())
         {
-            colliderRadius = GetComponent<BoxCollider2D>().size.x / 2;
+            colliderRadius = GetComponent<BoxCollider2D>().size.x / 2;  
         }
     }
 
