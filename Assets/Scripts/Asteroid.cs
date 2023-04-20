@@ -13,8 +13,13 @@ public class Asteroid : MonoBehaviour
 
     // support for random force
     Rigidbody2D rb2D;
-    const float minForce = 30;
-    const float maxForce = 50;
+    const float minForce = 50;
+    const float maxForce = 100;
+
+    // support for random torque
+    const float minTorque = -50;
+    const float maxTorque = 50;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -24,6 +29,7 @@ public class Asteroid : MonoBehaviour
 
         ApplyRandomSprite();
         ApplyRandomForce();
+        ApplyRandomTorque();
     }
     void ApplyRandomSprite()
     {
@@ -43,4 +49,9 @@ public class Asteroid : MonoBehaviour
         Vector2 randomDirection = new Vector2(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle));
         rb2D.AddForce(randomDirection * force, ForceMode2D.Force);
     }
+    void ApplyRandomTorque()
+    {
+        float torque = Random.Range(minTorque, maxTorque);
+        rb2D.AddTorque(torque);
+    }    
 }
